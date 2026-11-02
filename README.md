@@ -31,7 +31,35 @@ GitHub = 원격 협업 플랫폼
 
 # 실행 환경(OS/쉘/터미널, Docker 버전, Git 버전)
 
-# 수행 항목 체크리스트(터미널/권한/Docker/Dockerfile/포트/볼륨/Git/GitHub)
+# 수행 항목 체크리스트
+
+터미널/권한: 터미널 조작 로그
+
+- [ ] 터미널에서 수행한 핵심 명령과 출력 결과를 기술 문서에 기록한다.
+
+Docker: Docker 운영/검증 로그
+
+- [ ] docker --version, docker info 등 설치·점검 결과
+- [ ] docker images, docker ps -a, docker logs, docker stats 등 운영 명령 실행 흔적
+
+Dockerfile: Dockerfile 기반 웹 서버 컨테이너
+
+- [ ] 웹 서버 소스코드(예: app/ 또는 src/)
+- [ ] Dockerfile
+- [ ] 빌드/실행 명령 및 결과 로그(터미널 스크린샷 가능)
+- [ ] 포트 매핑 접속 성공 증거(스크린샷 또는 로그)
+
+포트: 포트 매핑 접속 증거
+- [ ] p <host_port>:<container_port>로 실행 후, 브라우저 접속 화면(주소창 포함)을 기술 문서에 첨부한다.
+
+볼륨: 바인드 마운트 반영 + 볼륨 영속성 증거
+- [ ] 바인드 마운트: 실행 명령 + 호스트 변경 전/후 비교
+- [ ] Docker 볼륨: 생성/연결/검증 명령 + 컨테이너 삭제 전/후 비교
+
+Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
+
+- [ ] Git 사용자 정보·기본 브랜치 설정 후, VSCode에서 GitHub 로그인 및 저장소 연동 완료
+- [ ] 민감한 개인 정보(ID/PW, 토큰 등)가 포함되지 않도록 주의한다.
 
 # 검증 방법(어떤 명령으로 무엇을 확인했는지)+결과 위치 링크
 
