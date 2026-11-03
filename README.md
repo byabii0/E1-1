@@ -104,6 +104,7 @@ WSManStackVersion              3.0
 PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1
 
+
 터미널: 직접 확인함... 추가 검증 필요
 
 Docker:
@@ -115,9 +116,8 @@ PS C:\WINDOWS\system32> git --version
 git version 2.56.0.windows.4
 
 통합:
-PS C:\WINDOWS\system32> Write-Host "OS: $((Get-CimInstance Win32_OperatingSystem).Caption) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $($Host.Name) | Docker: $(docker --version) | Git: $(git --version)"
-
-OS: Microsoft Windows 11 Home | Shell: PS 5.1.26100.9711 | Terminal: ConsoleHost | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
+Write-Host "OS: $((Get-CimInstance Win32_OperatingSystem).Caption) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $(if ($env:TERM_PROGRAM -eq 'vscode') {"VSCode Terminal v$env:TERM_PROGRAM_VERSION"} elseif ($env:WT_SESSION) {'Windows Terminal'} else {$Host.Name}) | Docker: $(docker --version) | Git: $(git --version)"
+OS: Microsoft Windows 11 Pro | Shell: PS 5.1.26100.9711 | Terminal: VSCode Terminal v1.144.0 | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
 
 # 트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
 
