@@ -339,6 +339,7 @@ docker logs
 
 docker stats
 실행 중인 컨테이너들이 컴퓨터의 자원(CPU, 메모리 등)을 얼마나 쓰고 있는지 실시간 스트리밍으로 보여줍니다.
+
         CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK I/O   PIDS
 
 
