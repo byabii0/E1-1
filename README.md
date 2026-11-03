@@ -318,18 +318,24 @@ Docker 정보 확인입니다.
 Docker 운영 명령 실행 흔적
 
 docker images
+
 컨테이너를 만들기 위한 설계도이자 실행 압축 파일입니다.
+        
         PS C:\Users\kmj04\dev-workspace> docker images
                                                                                                  i Info →   U  In Use
         IMAGE   ID             DISK USAGE   CONTENT SIZE   EXTRA
 
 docker ps -a
+
 특정 컨테이너가 왜 종료됐는지, 실행 중에 어떤 메시지를 내뱉었는지 확인합니다.
+        
         PS C:\Users\kmj04\dev-workspace> docker ps -a
         CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 docker logs
+
 오류가 생긴 이유: 로그를 볼 컨테이너의 ID나 이름을 docker logs 뒤에 입력하지 않았습니다. 아직 컨테이너의 이름을 모르기 때문입니다.
+        
         PS C:\Users\kmj04\dev-workspace> docker logs
         docker: 'docker logs' requires 1 argument
 
@@ -338,6 +344,7 @@ docker logs
         Run 'docker logs --help' for more information
 
 docker stats
+
 실행 중인 컨테이너들이 컴퓨터의 자원(CPU, 메모리 등)을 얼마나 쓰고 있는지 실시간 스트리밍으로 보여줍니다.
 
         CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK I/O   PIDS
