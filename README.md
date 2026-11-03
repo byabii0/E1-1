@@ -84,8 +84,6 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
 
 # 터미널 조작 로그
 
-터미널에서 수행한 핵심 명령
-
 위치 확인 및 이동: pwd, cd
 
     PS C:\test\집> cd ~
