@@ -131,23 +131,74 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
     -a----      2023-07-06  오후 11:03             45 nuuid.ini                                                          
     -a----      2023-07-06  오후 11:03             53 useruid.ini          
 
-권한 정리: chmod
+권한 정리: chmod 명령어를 사용해야 하는데, powershell 터미널에서는 사용할 수 없어서 chmod 없이 코드를 작성함 (재검토 후 수정 필요)
 
-파일 내용 작성 및 실행: cat, bash
-
-# 검증 방법(어떤 명령으로 무엇을 확인했는지)+결과 위치 링크
-
-실행 환경
-
-OS 환경 상세: PS C:\WINDOWS\system32> winver
-
-통합:
-
-    $os = Get-CimInstance Win32_OperatingSystem
-    $ver = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').DisplayVersion
-    Write-Host "OS: $($os.Caption) (버전 $ver, OS 빌드 $($os.BuildNumber)) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $(if ($env:TERM_PROGRAM -eq 'vscode') {"VSCode Terminal v$env:TERM_PROGRAM_VERSION"} elseif ($env:WT_SESSION) {'Windows Terminal'} else {$Host.Name}) | Docker: $(docker --version) | Git: $(git --version)"
-    
-    OS: Microsoft Windows 11 Pro (버전 26H2, OS 빌드 26300) | Shell: PS 5.1.26100.9711 | Terminal: VSCode Terminal v1.144.0 | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
+         # 1. 작업 디렉토리로 이동
+        >> cd ~\dev-workspace
+        >> 
+        >> # -----------------------------------------------
+        >> # 디렉토리 생성
+        >> # -----------------------------------------------
+        >> New-Item -ItemType Directory -Force -Path app, docker, git, logs, data
+        >> 
+        >> # 2. 테스트 파일 생성
+        >> New-Item -ItemType File -Force -Path app\index.html
+        >> New-Item -ItemType File -Force -Path app\config.yml
+        >> New-Item -ItemType File -Force -Path logs\app.log
+        >> New-Item -ItemType File -Force -Path app\start.sh
+        
+        
+            디렉터리: C:\Users\kmj04\dev-workspace
+        
+        
+        Mode                 LastWriteTime         Length Name                                                               
+        ----                 -------------         ------ ----                                                               
+        d-----      2026-11-03  오후 10:09                app                                                                
+        d-----      2026-11-03  오후 10:09                docker                                                             
+        d-----      2026-11-03  오후 10:09                git                                                                
+        d-----      2026-11-03  오후 10:09                logs                                                               
+        d-----      2026-11-03  오후 10:09                data                                                               
+        
+        
+            디렉터리: C:\Users\kmj04\dev-workspace\app
+        
+        
+        Mode                 LastWriteTime         Length Name                                                               
+        ----                 -------------         ------ ----                                                               
+        -a----      2026-11-03  오후 11:09              0 index.html                                                         
+        -a----      2026-11-03  오후 11:09              0 config.yml                                                         
+        
+        
+            디렉터리: C:\Users\kmj04\dev-workspace\logs
+        
+        
+        Mode                 LastWriteTime         Length Name                                                               
+        ----                 -------------         ------ ----                                                               
+        -a----      2026-11-03  오후 11:09              0 app.log                                                            
+        
+        
+            디렉터리: C:\Users\kmj04\dev-workspace\app
+        
+        
+        Mode                 LastWriteTime         Length Name                                                               
+        ----                 -------------         ------ ----                                                               
+        -a----      2026-11-03  오후 11:09              0 start.sh  
+        
+        파일 내용 작성 및 실행: cat, bash
+        
+        # 검증 방법(어떤 명령으로 무엇을 확인했는지)+결과 위치 링크
+        
+        실행 환경
+        
+        OS 환경 상세: PS C:\WINDOWS\system32> winver
+        
+        통합:
+        
+            $os = Get-CimInstance Win32_OperatingSystem
+            $ver = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').DisplayVersion
+            Write-Host "OS: $($os.Caption) (버전 $ver, OS 빌드 $($os.BuildNumber)) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $(if ($env:TERM_PROGRAM -eq 'vscode') {"VSCode Terminal v$env:TERM_PROGRAM_VERSION"} elseif ($env:WT_SESSION) {'Windows Terminal'} else {$Host.Name}) | Docker: $(docker --version) | Git: $(git --version)"
+            
+            OS: Microsoft Windows 11 Pro (버전 26H2, OS 빌드 26300) | Shell: PS 5.1.26100.9711 | Terminal: VSCode Terminal v1.144.0 | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
 
 ---
 
