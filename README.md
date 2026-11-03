@@ -38,7 +38,7 @@ OS 버전: Microsoft Windows 버전 26H2(OS 빌드 26300.9711)
 
 Docker 버전: 29.9.2
 
-Git 버전: 2.56.0
+Git 버전: 2.56.0.windows.4
 
 # 수행 항목 체크리스트
 
@@ -85,6 +85,38 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
 파일 내용 작성 및 실행: cat, bash
 
 # 검증 방법(어떤 명령으로 무엇을 확인했는지)+결과 위치 링크
+
+실행 환경
+
+OS: PS C:\WINDOWS\system32> winver
+
+쉘:
+PS C:\WINDOWS\system32> $PSVersionTable
+
+Name                           Value
+----                           -----
+PSVersion                      5.1.26100.9711
+PSEdition                      Desktop
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
+BuildVersion                   10.0.26100.9711
+CLRVersion                     4.0.30319.42000
+WSManStackVersion              3.0
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+
+터미널: 직접 확인함... 추가 검증 필요
+
+Docker:
+PS C:\WINDOWS\system32> docker --version
+Docker version 29.9.2, build a82e528
+
+git:
+PS C:\WINDOWS\system32> git --version
+git version 2.56.0.windows.4
+
+통합:
+PS C:\WINDOWS\system32> Write-Host "OS: $((Get-CimInstance Win32_OperatingSystem).Caption) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $($Host.Name) | Docker: $(docker --version) | Git: $(git --version)"
+OS: Microsoft Windows 11 Home | Shell: PS 5.1.26100.9711 | Terminal: ConsoleHost | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
 
 # 트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
 
