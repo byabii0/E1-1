@@ -32,9 +32,9 @@ GitHub = 원격 협업 플랫폼
 # 실행 환경
 OS 버전 Microsoft Windows 버전 26H2(OS 빌드 26300.9711)
 
-쉘 버전: Powershell 버전 5.1
+쉘 버전: PS 5.1.26100.9711
 
-터미널 버전: Microsoft VS Code 1.144.0.0
+터미널 버전: VS Code terminal v1.144.0.0
 
 Docker 버전: 29.9.2
 
@@ -110,16 +110,6 @@ SerializationVersion           1.1.0.1
 '# TERM_PROGRAM_VERSION 환경변수로 확인!
 
 $env:TERM_PROGRAM_VERSION
-
-Docker:
-
-PS C:\WINDOWS\system32> docker --version
-Docker version 29.9.2, build a82e528
-
-git:
-
-PS C:\WINDOWS\system32> git --version
-git version 2.56.0.windows.4
 
 통합:
 
