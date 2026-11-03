@@ -34,7 +34,7 @@ OS 버전: Microsoft Windows 버전 26H2(OS 빌드 26300.9711)
 
 쉘 버전: Powershell 버전 5.1
 
-터미널 버전: VSCode 1.144.0.0
+터미널 버전: Microsoft VS Code 1.144.0.0
 
 Docker 버전: 4.97.0
 
