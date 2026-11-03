@@ -186,13 +186,11 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
         
         파일 내용 작성 및 실행: cat, bash
         
-        # 검증 방법(어떤 명령으로 무엇을 확인했는지)+결과 위치 링크
+# 검증 방법(어떤 명령으로 무엇을 확인했는지)+결과 위치 링크
         
-        실행 환경
+실행 환경
         
-        OS 환경 상세: PS C:\WINDOWS\system32> winver
-        
-        통합:
+OS 환경 상세: PS C:\WINDOWS\system32> winver
         
             $os = Get-CimInstance Win32_OperatingSystem
             $ver = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').DisplayVersion
