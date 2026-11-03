@@ -40,6 +40,15 @@ Docker 버전: 29.9.2
 
 Git 버전: 2.56.0.windows.4
 
+OS 환경 상세
+        PS C:\WINDOWS\system32> winver
+실행 환경 확인 코드 통합
+        $os = Get-CimInstance Win32_OperatingSystem
+        $ver = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').DisplayVersion
+        Write-Host "OS: $($os.Caption) (버전 $ver, OS 빌드 $($os.BuildNumber)) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $(if ($env:TERM_PROGRAM -eq 'vscode') {"VSCode Terminal v$env:TERM_PROGRAM_VERSION"} elseif ($env:WT_SESSION) {'Windows Terminal'} else {$Host.Name}) | Docker: $(docker --version) | Git: $(git --version)"
+            
+        OS: Microsoft Windows 11 Pro (버전 26H2, OS 빌드 26300) | Shell: PS 5.1.26100.9711 | Terminal: VSCode Terminal v1.144.0 | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
+
 # 수행 항목 체크리스트
 
 터미널/권한: 터미널 조작 로그
@@ -186,20 +195,6 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
         
         파일 내용 작성 및 실행: cat, bash
         
-# 검증 방법(어떤 명령으로 무엇을 확인했는지)+결과 위치 링크
-        
-실행 환경
-        
-OS 환경 상세: PS C:\WINDOWS\system32> winver
-        
-        $os = Get-CimInstance Win32_OperatingSystem
-        $ver = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').DisplayVersion
-        Write-Host "OS: $($os.Caption) (버전 $ver, OS 빌드 $($os.BuildNumber)) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $(if ($env:TERM_PROGRAM -eq 'vscode') {"VSCode Terminal v$env:TERM_PROGRAM_VERSION"} elseif ($env:WT_SESSION) {'Windows Terminal'} else {$Host.Name}) | Docker: $(docker --version) | Git: $(git --version)"
-            
-        OS: Microsoft Windows 11 Pro (버전 26H2, OS 빌드 26300) | Shell: PS 5.1.26100.9711 | Terminal: VSCode Terminal v1.144.0 | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
-
----
-
 
 # 트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
 
