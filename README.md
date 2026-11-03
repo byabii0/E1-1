@@ -76,16 +76,60 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
 
 위치 확인 및 이동: pwd, cd
 
-PS C:\test\집> cd ~
-PS C:\Users\kmj04> pwd
+    PS C:\test\집> cd ~
+    PS C:\Users\kmj04> pwd
+    
+    Path          
+    '----          
+    C:\Users\kmj04
 
-Path          
-----          
-C:\Users\kmj04
+폴더와 파일 만들기-프로젝트 루트 폴더 생성: mkdir, touch
 
-폴더와 파일 만들기: mkdir, touch
+    PS C:\Users\kmj04> "app","docker","git","logs","data" | ForEach-Object { mkdir "~/dev-workspace/$_" }
+
+
+    디렉터리: C:\Users\kmj04\dev-workspace
+
+
+    Mode                 LastWriteTime         Length Name                                                               
+    ----                 -------------         ------ ----                                                               
+    d-----      2026-11-03  오후 10:09                app                                                                
+    d-----      2026-11-03  오후 10:09                docker                                                             
+    d-----      2026-11-03  오후 10:09                git                                                                
+    d-----      2026-11-03  오후 10:09                logs                                                               
+    d-----      2026-11-03  오후 10:09                data                
 
 목록 확인하기: ls, ls -l, ls -a, ls -la, tree
+
+    PS C:\Users\kmj04> ls    
+                         
+    디렉터리: C:\Users\kmj04
+
+    
+    Mode                 LastWriteTime         Length Name                                                               
+    ----                 -------------         ------ ----                                                               
+    d-----      2026-11-02   오후 9:59                .config                                                            
+    d-----      2026-11-03  오전 12:34                .copilot                                                           
+    d-----      2026-11-03   오후 8:40                .docker                                                            
+    d-----      2026-11-03  오전 12:35                .vscode                                                            
+    d-----      2026-11-02  오후 10:02                .vscode-shared                                                     
+    d-r---      2026-04-01   오후 5:23                Contacts                                                           
+    d-----      2026-11-03  오후 10:09                dev-workspace                                                      
+    d-----      2022-12-18   오후 1:23                Documents                                                          
+    d-r---      2026-11-03  오전 11:24                Downloads                                                          
+    d-r---      2026-04-01   오후 5:23                Favorites                                                          
+    d-r---      2026-04-01   오후 5:23                Links                                                              
+    d-r---      2026-04-01   오후 5:23                Music                                                              
+    dar--l      2026-04-01   오후 5:21                OneDrive                                                           
+    d-----      2026-06-23   오후 4:41                Pictures                                                           
+    d-r---      2026-04-01   오후 5:23                Saved Games                                                        
+    d-r---      2026-04-01   오후 5:23                Searches                                                           
+    d-r---      2026-04-01   오후 5:23                Videos                                                             
+    d-----      2023-07-06  오후 11:34                vmlogs                                                             
+    -a----      2026-11-03   오전 1:12             52 .gitconfig                                                         
+    -a----      2023-07-06  오후 11:03             41 inst.ini                                                           
+    -a----      2023-07-06  오후 11:03             45 nuuid.ini                                                          
+    -a----      2023-07-06  오후 11:03             53 useruid.ini          
 
 권한 정리: chmod
 
@@ -99,11 +143,11 @@ OS 환경 상세: PS C:\WINDOWS\system32> winver
 
 통합:
 
-$os = Get-CimInstance Win32_OperatingSystem
-$ver = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').DisplayVersion
-Write-Host "OS: $($os.Caption) (버전 $ver, OS 빌드 $($os.BuildNumber)) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $(if ($env:TERM_PROGRAM -eq 'vscode') {"VSCode Terminal v$env:TERM_PROGRAM_VERSION"} elseif ($env:WT_SESSION) {'Windows Terminal'} else {$Host.Name}) | Docker: $(docker --version) | Git: $(git --version)"
-
-OS: Microsoft Windows 11 Pro (버전 26H2, OS 빌드 26300) | Shell: PS 5.1.26100.9711 | Terminal: VSCode Terminal v1.144.0 | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
+    $os = Get-CimInstance Win32_OperatingSystem
+    $ver = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').DisplayVersion
+    Write-Host "OS: $($os.Caption) (버전 $ver, OS 빌드 $($os.BuildNumber)) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $(if ($env:TERM_PROGRAM -eq 'vscode') {"VSCode Terminal v$env:TERM_PROGRAM_VERSION"} elseif ($env:WT_SESSION) {'Windows Terminal'} else {$Host.Name}) | Docker: $(docker --version) | Git: $(git --version)"
+    
+    OS: Microsoft Windows 11 Pro (버전 26H2, OS 빌드 26300) | Shell: PS 5.1.26100.9711 | Terminal: VSCode Terminal v1.144.0 | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
 
 ---
 
