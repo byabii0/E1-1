@@ -131,7 +131,7 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
     -a----      2023-07-06  오후 11:03             45 nuuid.ini                                                          
     -a----      2023-07-06  오후 11:03             53 useruid.ini          
 
-권한 정리: chmod 명령어를 사용해야 하는데, powershell 터미널에서는 사용할 수 없어서 chmod 없이 코드를 작성함 (재검토 후 수정 필요)
+권한 정리: chmod 명령어를 사용해야 하는데, powershell 터미널에서는 사용할 수 없어서 chmod 없이 코드를 작성했습니다. (추후 재검토, 수정 필요)
 
          # 1. 작업 디렉토리로 이동
         >> cd ~\dev-workspace
