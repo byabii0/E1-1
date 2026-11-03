@@ -36,7 +36,7 @@ OS 버전: Microsoft Windows 버전 26H2(OS 빌드 26300.9711)
 
 터미널 버전: Microsoft VS Code 1.144.0.0
 
-Docker 버전: 4.97.0
+Docker 버전: 29.9.2
 
 Git 버전: 2.56.0
 
