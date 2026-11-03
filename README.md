@@ -41,8 +41,11 @@ Docker 버전: 29.9.2
 Git 버전: 2.56.0.windows.4
 
 OS 환경 상세
+
         PS C:\WINDOWS\system32> winver
+
 실행 환경 확인 코드 통합
+
         $os = Get-CimInstance Win32_OperatingSystem
         $ver = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').DisplayVersion
         Write-Host "OS: $($os.Caption) (버전 $ver, OS 빌드 $($os.BuildNumber)) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $(if ($env:TERM_PROGRAM -eq 'vscode') {"VSCode Terminal v$env:TERM_PROGRAM_VERSION"} elseif ($env:WT_SESSION) {'Windows Terminal'} else {$Host.Name}) | Docker: $(docker --version) | Git: $(git --version)"
