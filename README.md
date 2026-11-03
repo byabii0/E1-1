@@ -30,7 +30,11 @@ Git = 로컬 버전 관리
 GitHub = 원격 협업 플랫폼
 
 # 실행 환경
-OS/쉘/터미널
+OS 버전: Microsoft Windows 버전 26H2(OS 빌드 26300.9711)
+
+쉘 버전: Powershell 버전 5.1
+
+터미널 버전: VSCode 1.144.0.0
 
 Docker 버전: 4.97.0
 
