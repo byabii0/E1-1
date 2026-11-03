@@ -90,27 +90,6 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
 
 OS: PS C:\WINDOWS\system32> winver
 
-쉘:
-PS C:\WINDOWS\system32> $PSVersionTable
-
-Name                           Value
-----                           -----
-PSVersion                      5.1.26100.9711
-PSEdition                      Desktop
-PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}
-BuildVersion                   10.0.26100.9711
-CLRVersion                     4.0.30319.42000
-WSManStackVersion              3.0
-PSRemotingProtocolVersion      2.3
-SerializationVersion           1.1.0.1
-
-
-터미널:
-
-'# TERM_PROGRAM_VERSION 환경변수로 확인!
-
-$env:TERM_PROGRAM_VERSION
-
 통합:
 
 Write-Host "OS: $((Get-CimInstance Win32_OperatingSystem).Caption) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $(if ($env:TERM_PROGRAM -eq 'vscode') {"VSCode Terminal v$env:TERM_PROGRAM_VERSION"} elseif ($env:WT_SESSION) {'Windows Terminal'} else {$Host.Name}) | Docker: $(docker --version) | Git: $(git --version)"
