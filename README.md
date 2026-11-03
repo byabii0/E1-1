@@ -116,6 +116,7 @@ git version 2.56.0.windows.4
 
 통합:
 PS C:\WINDOWS\system32> Write-Host "OS: $((Get-CimInstance Win32_OperatingSystem).Caption) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $($Host.Name) | Docker: $(docker --version) | Git: $(git --version)"
+
 OS: Microsoft Windows 11 Home | Shell: PS 5.1.26100.9711 | Terminal: ConsoleHost | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
 
 # 트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
