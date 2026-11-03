@@ -106,6 +106,7 @@ SerializationVersion           1.1.0.1
 
 
 터미널:
+
 '# TERM_PROGRAM_VERSION 환경변수로 확인!
 
 $env:TERM_PROGRAM_VERSION
