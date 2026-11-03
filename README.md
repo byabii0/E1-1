@@ -30,7 +30,7 @@ Git = 로컬 버전 관리
 GitHub = 원격 협업 플랫폼
 
 # 실행 환경
-OS 버전: Microsoft Windows 버전 26H2(OS 빌드 26300.9711)
+OS 버전 Microsoft Windows 버전 26H2(OS 빌드 26300.9711)
 
 쉘 버전: Powershell 버전 5.1
 
