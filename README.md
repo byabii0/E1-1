@@ -30,7 +30,7 @@ Git = 로컬 버전 관리
 GitHub = 원격 협업 플랫폼
 
 # 실행 환경
-OS 버전 Microsoft Windows 버전 26H2(OS 빌드 26300.9711)
+OS 버전: Microsoft Windows 버전 26H2(OS 빌드 26300.9711)
 
 쉘 버전: PS 5.1.26100.9711
 
@@ -76,6 +76,13 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
 
 위치 확인 및 이동: pwd, cd
 
+PS C:\test\집> cd ~
+PS C:\Users\kmj04> pwd
+
+Path          
+----          
+C:\Users\kmj04
+
 폴더와 파일 만들기: mkdir, touch
 
 목록 확인하기: ls, ls -l, ls -a, ls -la, tree
@@ -97,6 +104,9 @@ $ver = (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').D
 Write-Host "OS: $($os.Caption) (버전 $ver, OS 빌드 $($os.BuildNumber)) | Shell: PS $($PSVersionTable.PSVersion) | Terminal: $(if ($env:TERM_PROGRAM -eq 'vscode') {"VSCode Terminal v$env:TERM_PROGRAM_VERSION"} elseif ($env:WT_SESSION) {'Windows Terminal'} else {$Host.Name}) | Docker: $(docker --version) | Git: $(git --version)"
 
 OS: Microsoft Windows 11 Pro (버전 26H2, OS 빌드 26300) | Shell: PS 5.1.26100.9711 | Terminal: VSCode Terminal v1.144.0 | Docker: Docker version 29.9.2, build a82e528 | Git: git version 2.56.0.windows.4
+
+---
+
 
 # 트러블슈팅 2건 이상(문제 → 원인 가설 → 확인 → 해결/대안)
 
