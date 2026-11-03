@@ -92,7 +92,7 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
     PS C:\Users\kmj04> pwd
     
     Path          
-    '----          
+    ----          
     C:\Users\kmj04
 
 폴더와 파일 만들기-프로젝트 루트 폴더 생성: mkdir, touch
