@@ -465,6 +465,24 @@ my-web-page 이미지 만들기
          => => naming to docker.io/library/my-web-page:latest                                                                0.0s
          => => unpacking to docker.io/library/my-web-page:latest                                                             0.0s
 
+컨테이너 이름을 E1-1로 정하고 컨테이너 실행하기
+
+        PS C:\Users\kmj0403232057\my-web-server> docker run -d -p 8080:80 --name E1-1 my-web-page
+        af50cac65f3e47460d500114bdead5be648a369586bba9768b46953306fbe1c3
+
+웹 서버 실행 확인
+
+        PS C:\Users\kmj0403232057\my-web-server> docker ps
+        CONTAINER ID   IMAGE         COMMAND                   CREATED         STATUS         PORTS                                     NAMES
+        af50cac65f3e   my-web-page   "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   E1-1
+
+<img width="1448" height="476" alt="image" src="https://github.com/user-attachments/assets/39f39582-a204-4952-893b-6f25a5e147cb" />
+
+
+웹 서버 링크 http://localhost:8080/
+
+<img width="621" height="359" alt="image" src="https://github.com/user-attachments/assets/df662a3f-98b8-4157-93e1-fddc5b36364b" />
+
 
 # 포트 매핑 접속 증거
 
