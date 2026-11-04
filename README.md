@@ -598,4 +598,22 @@ GitHub/VSCode 연동 증거
          create mode 100644 Dockerfile
          create mode 100644 index.html
 
+<img width="880" height="381" alt="image" src="https://github.com/user-attachments/assets/377cf88f-6cd1-4dd3-9214-9607dab47d35" />
+
 GitHub 원격 저장소 연결 및 Push
+
+        PS C:\Users\kmj04\my-web-server> git remote add origin https://github.com/byabii0/E1-1.git
+        PS C:\Users\kmj04\my-web-server> git branch -M main
+        PS C:\Users\kmj04\my-web-server> git push -u origin main
+        Enumerating objects: 7, done.
+        Counting objects: 100% (7/7), done.
+        Delta compression using up to 16 threads
+        Compressing objects: 100% (6/6), done.
+        Writing objects: 100% (6/6), 836 bytes | 167.00 KiB/s, done.
+        Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+        To https://github.com/byabii0/E1-1.git
+           6b144a2..b50435c  main -> main
+        branch 'main' set up to track 'origin/main'.
+
+
+
