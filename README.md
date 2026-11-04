@@ -313,6 +313,9 @@ Docker 정보 확인입니다.
          Live Restore Enabled: false
          Firewall Backend: iptables
 
+<img width="972" height="270" alt="image" src="https://github.com/user-attachments/assets/12196de3-5dfe-4db5-9457-83453c4a7e27" />
+
+
 Docker 운영 명령 실행 흔적
 
 docker images
