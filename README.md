@@ -437,13 +437,13 @@ Dockerfile 만들기
 Dockerfile과 index.html이 잘 만들어졌는지 확인
 
         PS C:\Users\kmj0403232057\my-web-server> cat index.html
-        >> cat Dockerfile
         <!DOCTYPE html>
         <html>
         <body>
-            <h1>hello-world</h1>
+        <h1>hello-world</h1>
         </body>
         </html>
+        PS C:\Users\kmj0403232057\my-web-server> cat dockerfile
         FROM nginx:alpine
         COPY index.html /usr/share/nginx/html/index.html
 
