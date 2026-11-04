@@ -507,11 +507,12 @@ my-web-page 이미지 만들기
 
 <img width="1420" height="525" alt="image" src="https://github.com/user-attachments/assets/54c0f1fb-95f9-4967-a47f-5239907be1fa" />
 
+
 볼륨 영속성 증거
 
 E1-2 index.html 파일 불러오기 → 내용 수정 → 저장
 
-        PS C:\Users\kmj04\my-web-server> code index.html
+        PS C:\Users\kmj0403232057\my-web-server> code index.html
         
         <!DOCTYPE html>
         <html>
@@ -525,6 +526,22 @@ E1-2 index.html 파일 불러오기 → 내용 수정 → 저장
         </html>
 
 <img width="587" height="288" alt="image" src="https://github.com/user-attachments/assets/3c445cfa-2cad-466f-9db1-b64359738a67" />
+
+E1-2 삭제
+
+-f: 실행 중인 컨테이너를 강제로(force) 끄고 삭제 → http://localhost:8081 사라짐
+
+        PS C:\Users\kmj04\my-web-server> docker rm -f E1-2
+        E1-2
+
+새로운 컨테이너 E1-3 만들었을 때 index.html 파일이 그대로 남아있는지 확인
+
+        PS C:\Users\kmj04\my-web-server> docker run -d -p 8082:80 --name E1-3 -v C:\Users\kmj04\my-web-server:/usr/share/nginx/html my-web-page
+        3bb373abc1e6334e272c02ec84b53205226b2529cd8c4bf4c1844c9a523f6537
+
+<img width="1212" height="187" alt="image" src="https://github.com/user-attachments/assets/60347c39-a496-4cf5-8b5b-cd9b9f6ab55d" />
+
+<img width="628" height="327" alt="image" src="https://github.com/user-attachments/assets/558c0cc8-244a-40dc-bfdd-e821913daafe" />
 
 
 
