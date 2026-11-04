@@ -56,22 +56,22 @@ OS 환경 상세
 
 터미널/권한: 터미널 조작 로그
 
-- [ ] 터미널에서 수행한 핵심 명령과 출력 결과를 기술 문서에 기록한다.
+- [x] 터미널에서 수행한 핵심 명령과 출력 결과를 기술 문서에 기록한다.
 
 Docker: Docker 운영/검증 로그
 
-- [ ] docker --version, docker info 등 설치·점검 결과
-- [ ] docker images, docker ps -a, docker logs, docker stats 등 운영 명령 실행 흔적
+- [x] docker --version, docker info 등 설치·점검 결과
+- [x] docker images, docker ps -a, docker logs, docker stats 등 운영 명령 실행 흔적
 
 Dockerfile: Dockerfile 기반 웹 서버 컨테이너
 
-- [ ] 웹 서버 소스코드(예: app/ 또는 src/)
-- [ ] Dockerfile
-- [ ] 빌드/실행 명령 및 결과 로그(터미널 스크린샷 가능)
-- [ ] 포트 매핑 접속 성공 증거(스크린샷 또는 로그)
+- [x] 웹 서버 소스코드(예: app/ 또는 src/)
+- [x] Dockerfile
+- [x] 빌드/실행 명령 및 결과 로그(터미널 스크린샷 가능)
+- [x] 포트 매핑 접속 성공 증거(스크린샷 또는 로그)
 
 포트: 포트 매핑 접속 증거
-- [ ] p <host_port>:<container_port>로 실행 후, 브라우저 접속 화면(주소창 포함)을 기술 문서에 첨부한다.
+- [x] p <host_port>:<container_port>로 실행 후, 브라우저 접속 화면(주소창 포함)을 기술 문서에 첨부한다.
 
 볼륨: 바인드 마운트 반영 + 볼륨 영속성 증거
 - [ ] 바인드 마운트: 실행 명령 + 호스트 변경 전/후 비교
@@ -401,11 +401,20 @@ docker ps -a: 컴퓨터에 존재하는 모든 컨테이너의 리스트입니�
 
 폴더 만들기: 바탕화면에 my-web-server 폴더 생성 후 mkdir 명령어 입력
 
-        mkdir my-web-server
+        PS C:\Users\kmj0403232057\my-web-server> mkdir my-web-server
+        
+        
+            디렉터리: C:\Users\kmj0403232057\my-web-server
+        
+        
+        Mode                 LastWriteTime         Length Name                                                                   
+        ----                 -------------         ------ ----                                                                   
+        d-----      2026-11-04  오후 12:06                my-web-server         
 
 폴더 안으로 들어가기
 
-        cd my-web-server
+        PS C:\Users\kmj0403232057\my-web-server> cd my-web-server
+        PS C:\Users\kmj0403232057\my-web-server\my-web-server> 
         
 index.html 만들기
 
@@ -486,6 +495,14 @@ my-web-page 이미지 만들기
 <img width="621" height="359" alt="image" src="https://github.com/user-attachments/assets/df662a3f-98b8-4157-93e1-fddc5b36364b" />
 
 
-# 바인드 마운트 반엉 + 볼륨 영속성 증거
+# 바인드 마운트 반영 + 볼륨 영속성 증거
+
+바인드 마운트 반영
+
+        PS C:\Users\kmj0403232057\my-web-server> docker run -d -p 8081:80 -v C:\Users\kmj0403232057\my-web-server:/usr/share/nginx/html --name E1-2 my-web-page                                                                                        
+        85563de22774ed99cc64b9f8b2bea75f6fed5cb92f469259bb80adb441564d39
+
+<img width="1420" height="525" alt="image" src="https://github.com/user-attachments/assets/54c0f1fb-95f9-4967-a47f-5239907be1fa" />
+
 
 # Git 설정 및 GitHub/VSCode 연동 증거
