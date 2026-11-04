@@ -348,7 +348,7 @@ docker ps -a
 
 docker logs
 
-오류가 생긴 이유: 로그를 볼 컨테이너의 ID나 이름을 docker logs 뒤에 입력하지 않았습니다. 아직 컨테이너의 이름을 모르기 때문입니다.
+오류가 생긴 이유: 로그를 볼 컨테이너의 ID나 이름을 docker logs 뒤에 입력하지 않았습니다. 아직 컨테이너 이름 설정에 관한 부분을 잘 모르기 때문입니다.
         
         PS C:\Users\kmj04\dev-workspace> docker logs
         docker: 'docker logs' requires 1 argument
