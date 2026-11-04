@@ -561,3 +561,41 @@ E1-2 삭제
 컨테이너 삭제 전/후 비교: 컨테이너는 사라져도 바인드 마운트(-v)로 연결한 데이터는 사라지지 않았습니다. 바인드 마운트나 볼륨으로 데이터를 호스트에 안전하게 보관했기 때문입니다.
 
 # Git 설정 및 GitHub/VSCode 연동 증거
+
+Git 설정
+
+        PS C:\Users\kmj04\my-web-server> git config --global user.name "byabii0"
+        PS C:\Users\kmj04\my-web-server> git config --global user.email "kmj040323@gmail.com"
+        PS C:\Users\kmj04\my-web-server> git config --list
+        diff.astextplain.textconv=astextplain
+        filter.lfs.clean=git-lfs clean -- %f
+        filter.lfs.smudge=git-lfs smudge -- %f
+        filter.lfs.process=git-lfs filter-process
+        filter.lfs.required=true
+        http.sslbackend=schannel
+        core.autocrlf=true
+        core.fscache=true
+        core.symlinks=false
+        pull.rebase=false
+        credential.helper=manager
+        credential.https://dev.azure.com.usehttppath=true
+        init.defaultbranch=master
+        user.name=byabii0
+        user.email=kmj040323@gmail.com
+
+GitHub/VSCode 연동 증거
+
+로컬 저장소 만들기 및 커밋
+
+        PS C:\Users\kmj04\my-web-server> git init
+        Initialized empty Git repository in C:/Users/kmj04/my-web-server/.git/
+        PS C:\Users\kmj04\my-web-server> git add .
+        warning: in the working copy of 'Dockerfile', LF will be replaced by CRLF the next time Git touches it
+        warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+        PS C:\Users\kmj04\my-web-server> git commit -m "First Commit"
+        [master (root-commit) 1768a40] First Commit
+         2 files changed, 12 insertions(+)
+         create mode 100644 Dockerfile
+         create mode 100644 index.html
+
+GitHub 원격 저장소 연결 및 Push
