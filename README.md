@@ -21,11 +21,11 @@
 
 - [ ] 기존 Dockerfile을 기반으로 커스텀 이미지를 만들 수 있다.
 - [ ] 포트 매핑이 필요한 이유를 설명할 수 있다.
-- [ ] Docker 볼륨(영속 데이터)을 설명할 수 있다.
+- [x] Docker 볼륨(영속 데이터)을 설명할 수 있다.
 
 🤝 협업 도구
 
-- [ ] Git vs GitHub 역할 차이를 설명할 수 있다.
+- [x] Git vs GitHub 역할 차이를 설명할 수 있다.
 Git = 로컬 버전 관리
 GitHub = 원격 협업 플랫폼
 
@@ -79,8 +79,8 @@ Dockerfile: Dockerfile 기반 웹 서버 컨테이너
 
 Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
 
-- [ ] Git 사용자 정보·기본 브랜치 설정 후, VSCode에서 GitHub 로그인 및 저장소 연동 완료
-- [ ] 민감한 개인 정보(ID/PW, 토큰 등)가 포함되지 않도록 주의한다.
+- [x] Git 사용자 정보·기본 브랜치 설정 후, VSCode에서 GitHub 로그인 및 저장소 연동 완료
+- [x] 민감한 개인 정보(ID/PW, 토큰 등)가 포함되지 않도록 주의한다.
 
 # 터미널 조작 로그
 
@@ -492,11 +492,11 @@ my-web-page 이미지 만들기
 
 <img width="1448" height="476" alt="image" src="https://github.com/user-attachments/assets/39f39582-a204-4952-893b-6f25a5e147cb" />
 
-
 웹 서버 링크 http://localhost:8080/
 
 <img width="621" height="359" alt="image" src="https://github.com/user-attachments/assets/df662a3f-98b8-4157-93e1-fddc5b36364b" />
 
+포트 매핑이 필요한 이유: 내 호스트 포트와 컨테이너 포트를 연결하면 외부 사용자가 내 포트로 컨테이너에 접근할 수 있습니다. 
 
 # 바인드 마운트 반영 + 볼륨 영속성 증거
 
