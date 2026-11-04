@@ -507,5 +507,25 @@ my-web-page 이미지 만들기
 
 <img width="1420" height="525" alt="image" src="https://github.com/user-attachments/assets/54c0f1fb-95f9-4967-a47f-5239907be1fa" />
 
+볼륨 영속성 증거
+
+E1-2 index.html 파일 불러오기 → 내용 수정 → 저장
+
+        PS C:\Users\kmj04\my-web-server> code index.html
+        
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <title>영속성 테스트</title>
+        </head>
+        <body>
+        <h1>바인드 마운트 연결 성공!</h1>
+        <p>현재 상태: 컨테이너 E1-2와 내 폴더가 연결되어 있습니다.</p>
+        </body>
+        </html>
+
+<img width="587" height="288" alt="image" src="https://github.com/user-attachments/assets/3c445cfa-2cad-466f-9db1-b64359738a67" />
+
+
 
 # Git 설정 및 GitHub/VSCode 연동 증거
