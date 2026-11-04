@@ -399,6 +399,71 @@ docker ps -a: 컴퓨터에 존재하는 모든 컨테이너의 리스트입니�
         CONTAINER ID   IMAGE         COMMAND                   CREATED          STATUS                     PORTS                                     NAMES
         e33e451f4c3a   hello-world   "/hello"                  8 minutes ago    Exited (0) 8 minutes ago                                             goofy_carson
 
+폴더 만들기: 바탕화면에 my-web-server 폴더 생성 후 mkdir 명령어 입력
+
+        mkdir my-web-server
+
+폴더 안으로 들어가기
+
+        cd my-web-server
+        
+index.html 만들기
+
+        PS C:\Users\kmj0403232057\my-web-server> @'
+        >> <!DOCTYPE html>
+        >> <html>
+        >> <body>
+        >>     <h1>hello-world</h1>                     
+        >> </body>                                                 
+        >> </html>
+        >> '@ | Out-File -FilePath index.html -Encoding utf8
+
+Dockerfile 만들기
+
+        PS C:\Users\kmj0403232057\my-web-server> @'         
+        >> FROM nginx:alpine
+        >> COPY index.html /usr/share/nginx/html/index.html
+        >> '@ | Out-File -FilePath Dockerfile -Encoding ascii
+
+Dockerfile과 index.html이 잘 만들어졌는지 확인
+
+        PS C:\Users\kmj0403232057\my-web-server> cat index.html
+        >> cat Dockerfile
+        <!DOCTYPE html>
+        <html>
+        <body>
+            <h1>hello-world</h1>
+        </body>
+        </html>
+        FROM nginx:alpine
+        COPY index.html /usr/share/nginx/html/index.html
+
+my-web-page 이미지 만들기
+
+'-t': 이미지의 이름을 지어줍니다.
+
+'.': 현재 디렉토리(지금 내가 있는 이 폴더)에서 Dockerfile을 찾아보라는 의미입니다.
+
+        PS C:\Users\kmj0403232057\my-web-server> docker build -t my-web-page .
+        [+] Building 1.7s (7/7) FINISHED                                                                     docker:desktop-linux
+         => [internal] load build definition from Dockerfile                                                                 0.0s
+         => => transferring dockerfile: 105B                                                                                 0.0s
+         => [internal] load metadata for docker.io/library/nginx:alpine                                                      1.3s
+         => [internal] load .dockerignore                                                                                    0.0s
+         => => transferring context: 2B                                                                                      0.0s
+         => [internal] load build context                                                                                    0.0s
+         => => transferring context: 112B                                                                                    0.0s
+         => CACHED [1/2] FROM docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698  0.0s
+         => => resolve docker.io/library/nginx:alpine@sha256:785835ea65db4bba6f021acc0f3be91b0fef76a53fe41f8588c6698d2aed06  0.0s
+         => [2/2] COPY index.html /usr/share/nginx/html/index.html                                                           0.0s
+         => exporting to image                                                                                               0.2s
+         => => exporting layers                                                                                              0.1s
+         => => exporting manifest sha256:ace7d2d9ad1323acd1a2e6c81b4e4bcfe5090ee7a5b72fdde5245bd0a1fb7d59                    0.0s
+         => => exporting config sha256:520c3d8e3eb0c93df1b593f62a9d6a37b6579caa09fa7af43e118a9332edb0bb                      0.0s
+         => => exporting attestation manifest sha256:7407a1b80bd520c689ac85465e0420666bfe824c3f59e15fc400268dd09e5e77        0.0s
+         => => exporting manifest list sha256:bf179243270e9ec89b31fbcb8758585301225a93979721d4d8caff03360f2f48               0.0s
+         => => naming to docker.io/library/my-web-page:latest                                                                0.0s
+         => => unpacking to docker.io/library/my-web-page:latest                                                             0.0s
 
 
 # 포트 매핑 접속 증거
