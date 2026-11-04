@@ -362,7 +362,7 @@ docker stats
 
 # Dockerfile 기반 웹 서버 컨테이너
 
-docker run hello-world
+docker run hello-world: Docker가 설치되었고, Docker Hub에서 이미지를 가져와 실행할 준비가 끝났습니다.
 
         PS C:\Users\kmj0403232057> docker run hello-world
         Unable to find image 'hello-world:latest' locally
@@ -393,7 +393,7 @@ docker run hello-world
         For more examples and ideas, visit:
          https://docs.docker.com/get-started/
 
-docker ps -a
+docker ps -a: 컴퓨터에 존재하는 모든 컨테이너의 리스트입니다.
 
         PS C:\Users\kmj0403232057> docker ps -a
         CONTAINER ID   IMAGE         COMMAND                   CREATED          STATUS                     PORTS                                     NAMES
