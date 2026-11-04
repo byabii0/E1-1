@@ -465,6 +465,8 @@ my-web-page 이미지 만들기
          => => naming to docker.io/library/my-web-page:latest                                                                0.0s
          => => unpacking to docker.io/library/my-web-page:latest                                                             0.0s
 
+# 포트 매핑 접속 증거
+
 컨테이너 이름을 E1-1로 정하고 컨테이너 실행하기
 
         PS C:\Users\kmj0403232057\my-web-server> docker run -d -p 8080:80 --name E1-1 my-web-page
@@ -483,8 +485,6 @@ my-web-page 이미지 만들기
 
 <img width="621" height="359" alt="image" src="https://github.com/user-attachments/assets/df662a3f-98b8-4157-93e1-fddc5b36364b" />
 
-
-# 포트 매핑 접속 증거
 
 # 바인드 마운트 반엉 + 볼륨 영속성 증거
 
