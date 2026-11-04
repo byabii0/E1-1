@@ -540,7 +540,7 @@ E1-2 삭제
         3bb373abc1e6334e272c02ec84b53205226b2529cd8c4bf4c1844c9a523f6537
 
 <img width="1212" height="187" alt="image" src="https://github.com/user-attachments/assets/60347c39-a496-4cf5-8b5b-cd9b9f6ab55d" />
-
+웹 서버 링크 http://localhost:8082/
 <img width="628" height="327" alt="image" src="https://github.com/user-attachments/assets/558c0cc8-244a-40dc-bfdd-e821913daafe" />
 
 
