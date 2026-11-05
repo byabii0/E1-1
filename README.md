@@ -141,7 +141,7 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
     -a----      2023-07-06  오후 11:03             45 nuuid.ini                                                          
     -a----      2023-07-06  오후 11:03             53 useruid.ini          
 
-권한 정리: chmod 명령어를 사용해야 하는데, powershell 터미널에서는 사용할 수 없어서 chmod 없이 코드를 작성했습니다. 이어지는 권한 변경 과정에서는 chmod 명령어를 사용했습니다.
+권한 정리: chmod 명령어를 사용해야 하는데, powershell 터미널에서는 사용할 수 없어서 chmod 없이 코드를 작성했습니다. 이어지는 권한 변경 과정에서는 사용할 수 없는 원인을 파악하여 chmod 명령어를 사용했습니다. 과제 마지막의 트러블슈팅 경험에서 자세히 기재하겠습니다.
 
          # 1. 작업 디렉토리로 이동
         >> cd ~\dev-workspace
@@ -292,9 +292,19 @@ aaa-dir 디렉터리를 생성하고 권한을 777에서 700으로 변경했습�
         root@db185662a4f9:/home/study# ls -ld aaa-dir
         drwxrwxrwx 1 root root 4096 Nov  5 06:19 aaa-dir
         root@db185662a4f9:/home/study# chmod 700 aaa-dir
+        root@db185662a4f9:/home/study# ls -ld aaa-dir
+        drwx------ 1 root root 4096 Nov  5 06:19 aaa-dir
 
 파일 권한 변경
 
+aaa.txt 파일을 생성하고 권한을 644에서 600으로 변경했습니다.
+
+        root@db185662a4f9:/home/study# touch aaa.txt 
+        root@db185662a4f9:/home/study# ls -l aaa.txt
+        -rw-r--r-- 1 root root 0 Nov  5 07:10 aaa.txt
+        root@db185662a4f9:/home/study# chmod 600 aaa.txt
+        root@db185662a4f9:/home/study# ls -l aaa.txt
+        -rw------- 1 root root 0 Nov  5 07:10 aaa.txt
 
 # Docker 운영/검증 로그
 
