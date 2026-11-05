@@ -93,21 +93,24 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
     ----          
     C:\Users\kmj04
 
-폴더와 파일 만들기-프로젝트 루트 폴더 생성: mkdir, touch
+폴더와 파일 만들기-프로젝트 루트 폴더 생성: mkdir, touch 명령어 사용
 
-    PS C:\Users\kmj04> "app","docker","git","logs","data" | ForEach-Object { mkdir "~/dev-workspace/$_" }
+mkdir 명령어로 abc 폴더를 생성했습니다. cd.. 명령어로 상위 폴더로 이동한 다음 ubuntu 컨테이너로 진입해서 touch 명령어로 def 파일을 생성했습니다.
 
+        PS C:\test\집> mkdir abc  
+        
+        
+            디렉터리: C:\test\집
+        
+        
+        Mode                 LastWriteTime         Length Nam
+                                                          e  
+        ----                 -------------         ------ ---
+        d-----      2026-11-05  오후 10:44                abc                   
+        PS C:\test\집\abc> cd ..
+        PS C:\test\집> docker run --rm -it -v ${PWD}:/data ubuntu bash
+        root@f9b0de57b87b:/# touch def.txt
 
-    디렉터리: C:\Users\kmj04\dev-workspace
-
-
-    Mode                 LastWriteTime         Length Name                                                               
-    ----                 -------------         ------ ----                                                               
-    d-----      2026-11-03  오후 10:09                app                                                                
-    d-----      2026-11-03  오후 10:09                docker                                                             
-    d-----      2026-11-03  오후 10:09                git                                                                
-    d-----      2026-11-03  오후 10:09                logs                                                               
-    d-----      2026-11-03  오후 10:09                data                
 
 디렉터리 목록 확인하기: ls, ls -l, ls -a, ls -la, tree
 
