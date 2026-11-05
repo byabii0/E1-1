@@ -521,7 +521,7 @@ docker stats
 
 docker run hello-world: Docker가 설치되었고, Docker Hub에서 이미지를 가져와 실행할 준비가 끝났습니다.
 
-        PS C:\Users\kmj0403232057> docker run hello-world
+        PS C:\Users\kmj04> docker run hello-world
         Unable to find image 'hello-world:latest' locally
         latest: Pulling from library/hello-world
         4f55086f7dd0: Pull complete 
@@ -570,13 +570,13 @@ docker 명령어는 원래 내 컴퓨터 터미널에서 실행해야 하기 때
 
 docker ps -a: 컴퓨터에 존재하는 모든 컨테이너의 리스트입니다.
 
-        PS C:\Users\kmj0403232057> docker ps -a
+        PS C:\Users\kmj04> docker ps -a
         CONTAINER ID   IMAGE         COMMAND                   CREATED          STATUS                     PORTS                                     NAMES
         e33e451f4c3a   hello-world   "/hello"                  8 minutes ago    Exited (0) 8 minutes ago                                             goofy_carson
 
 폴더 만들기: 바탕화면에 my-web-server 폴더 생성 후 mkdir 명령어 입력
 
-        PS C:\Users\kmj0403232057\my-web-server> mkdir my-web-server
+        PS C:\Users\kmj04\my-web-server> mkdir my-web-server
         
         
             디렉터리: C:\Users\kmj0403232057\my-web-server
@@ -588,8 +588,8 @@ docker ps -a: 컴퓨터에 존재하는 모든 컨테이너의 리스트입니�
 
 폴더 안으로 들어가기
 
-        PS C:\Users\kmj0403232057\my-web-server> cd my-web-server
-        PS C:\Users\kmj0403232057\my-web-server\my-web-server> 
+        PS C:\Users\kmj04\my-web-server> cd my-web-server
+        PS C:\Users\kmj04\my-web-server\my-web-server> 
         
 index.html 만들기
 
@@ -601,7 +601,7 @@ index.html 만들기
 
 작은따옴표는 있는 그대로 출력하고, 큰따옴표는 $변수를 실제 값으로 바꿔줍니다.
 
-        PS C:\Users\kmj0403232057\my-web-server> @'
+        PS C:\Users\kmj04\my-web-server> @'
         >> <!DOCTYPE html>
         >> <html>
         >> <body>
@@ -612,21 +612,21 @@ index.html 만들기
 
 Dockerfile 만들기
 
-        PS C:\Users\kmj0403232057\my-web-server> @'         
+        PS C:\Users\kmj04\my-web-server> @'         
         >> FROM nginx:alpine
         >> COPY index.html /usr/share/nginx/html/index.html
         >> '@ | Out-File -FilePath Dockerfile -Encoding ascii
 
 Dockerfile과 index.html이 잘 만들어졌는지 확인
 
-        PS C:\Users\kmj0403232057\my-web-server> cat index.html
+        PS C:\Users\kmj04\my-web-server> cat index.html
         <!DOCTYPE html>
         <html>
         <body>
         <h1>hello-world</h1>
         </body>
         </html>
-        PS C:\Users\kmj0403232057\my-web-server> cat dockerfile
+        PS C:\Users\kmj04\my-web-server> cat dockerfile
         FROM nginx:alpine
         COPY index.html /usr/share/nginx/html/index.html
 
@@ -636,7 +636,7 @@ my-web-page 이미지 만들기
 
 '.': 현재 디렉토리(지금 내가 있는 이 폴더)에서 Dockerfile을 찾아보라는 의미입니다.
 
-        PS C:\Users\kmj0403232057\my-web-server> docker build -t my-web-page .
+        PS C:\Users\kmj04\my-web-server> docker build -t my-web-page .
         [+] Building 1.7s (7/7) FINISHED                                                                     docker:desktop-linux
          => [internal] load build definition from Dockerfile                                                                 0.0s
          => => transferring dockerfile: 105B                                                                                 0.0s
@@ -659,14 +659,14 @@ my-web-page 이미지 만들기
 
 컨테이너 이름을 E1-1로 정하고 컨테이너 실행하기
 
-        PS C:\Users\kmj0403232057\my-web-server> docker run -d -p 8080:80 --name E1-1 my-web-page
+        PS C:\Users\kmj04\my-web-server> docker run -d -p 8080:80 --name E1-1 my-web-page
         af50cac65f3e47460d500114bdead5be648a369586bba9768b46953306fbe1c3
 
 # 포트 매핑 접속 증거
 
 웹 서버 실행 확인
 
-        PS C:\Users\kmj0403232057\my-web-server> docker ps
+        PS C:\Users\kmj04\my-web-server> docker ps
         CONTAINER ID   IMAGE         COMMAND                   CREATED         STATUS         PORTS                                     NAMES
         af50cac65f3e   my-web-page   "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   E1-1
 
@@ -704,7 +704,7 @@ attach와 exec의 차이: attach는 컨테이너의 메인 프로세스와 직�
 
 바인드 마운트 반영
 
-        PS C:\Users\kmj0403232057\my-web-server> docker run -d -p 8081:80 -v C:\Users\kmj0403232057\my-web-server:/usr/share/nginx/html --name E1-2 my-web-page                                                                                        
+        PS C:\Users\kmj04\my-web-server> docker run -d -p 8081:80 -v C:\Users\kmj0403232057\my-web-server:/usr/share/nginx/html --name E1-2 my-web-page                                                                                        
         85563de22774ed99cc64b9f8b2bea75f6fed5cb92f469259bb80adb441564d39
 
 <img width="1420" height="525" alt="image" src="https://github.com/user-attachments/assets/54c0f1fb-95f9-4967-a47f-5239907be1fa" />
@@ -729,7 +729,7 @@ attach와 exec의 차이: attach는 컨테이너의 메인 프로세스와 직�
 
 E1-2 index.html 파일 불러오기 → 내용 수정 → 저장
 
-        PS C:\Users\kmj0403232057\my-web-server> code index.html
+        PS C:\Users\kmj04\my-web-server> code index.html
         
         <!DOCTYPE html>
         <html>
@@ -768,8 +768,8 @@ E1-2 삭제
 
 Git 설정
 
-        PS C:\Users\kmj04\my-web-server> git config --global user.name "byabii0"
-        PS C:\Users\kmj04\my-web-server> git config --global user.email "kmj040323@gmail.com"
+        PS C:\Users\kmj04\my-web-server> git config --global user.name "**"
+        PS C:\Users\kmj04\my-web-server> git config --global user.email "**@gmail.com"
         PS C:\Users\kmj04\my-web-server> git config --list
         diff.astextplain.textconv=astextplain
         filter.lfs.clean=git-lfs clean -- %f
@@ -784,8 +784,8 @@ Git 설정
         credential.helper=manager
         credential.https://dev.azure.com.usehttppath=true
         init.defaultbranch=master
-        user.name=byabii0
-        user.email=kmj040323@gmail.com
+        user.name=**
+        user.email=**
 
 GitHub/VSCode 연동 증거
 
