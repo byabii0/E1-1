@@ -295,6 +295,8 @@ aaa-dir 디렉터리를 생성하고 권한을 777에서 700으로 변경했습�
         root@db185662a4f9:/home/study# ls -ld aaa-dir
         drwx------ 1 root root 4096 Nov  5 06:19 aaa-dir
 
+권한 변경 전/후 비교: 권한 변경 전에는 소유자, 그룹, 기타 사용자 모두 읽기, 쓰기, 실행이 가능했습니다. 권한 변경 후에는 소유자만 읽기, 쓰기, 실행이 가능합니다.
+
 파일 권한 변경
 
 aaa.txt 파일을 생성하고 권한을 644에서 600으로 변경했습니다.
@@ -305,6 +307,8 @@ aaa.txt 파일을 생성하고 권한을 644에서 600으로 변경했습니다.
         root@db185662a4f9:/home/study# chmod 600 aaa.txt
         root@db185662a4f9:/home/study# ls -l aaa.txt
         -rw------- 1 root root 0 Nov  5 07:10 aaa.txt
+
+권한 변경 전/후 비교: 권한 변경 전에는 소유자, 그룹, 기타 사용자 모두 읽기, 쓰기, 실행이 가능했습니다. 권한 변경 후에는 소유자만 읽기, 쓰기, 실행이 가능합니다.
 
 # Docker 운영/검증 로그
 
@@ -504,6 +508,24 @@ docker run hello-world: Docker가 설치되었고, Docker Hub에서 이미지를
         
         For more examples and ideas, visit:
          https://docs.docker.com/get-started/
+
+ubuntu 컨테이너 실행, 내부 진입
+
+        PS C:\test\집> docker run -it --name study-ubuntu ubuntu bash
+        root@b22a5bf54131:/# 
+
+ls: 파일 목록을 확인하는 명령어입니다.
+
+        root@b22a5bf54131:/# ls
+        bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+        boot  etc  lib   media  opt  root  sbin  sys  usr
+
+echo: 텍스트 출력 명령어입니다.
+
+        root@b22a5bf54131:/# echo "a"           
+        a
+
+docker 명령어는 원래 내 컴퓨터 터미널에서 실행해야 하기 때문에 exit 명령어를 입력해서 나갑니다.
 
 docker ps -a: 컴퓨터에 존재하는 모든 컨테이너의 리스트입니다.
 
