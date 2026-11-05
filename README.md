@@ -238,6 +238,64 @@ x (execute, 실행, 1): 파일을 프로그램처럼 실행할 수 있는 권한
 
 6(4+2: rw-, 소유자가 읽고 쓰기 가능) 4(4: r--, 그룹은 읽기 가능) 4(4: r--, 기타 사용자는 읽기 가능)
 
+디렉터리 권한 변경
+
+aaa-dir 디렉터리를 생성하고 권한을 777에서 700으로 변경했습니다.
+
+        PS C:\Users\kmj04> mkdir aaa-dir
+        
+        
+            디렉터리: C:\Users\kmj04
+        
+        
+        Mode                 LastWriteTime         Length Name                                                                                                                          
+        ----                 -------------         ------ ----                                                                                                                          
+        d-----      2026-11-05   오후 3:19                aaa-dir                                                                      
+        PS C:\Users\kmj04> docker run -it -v ${PWD}:/home/study ubuntu bash
+        root@db185662a4f9:/home/study# ls
+         AppData
+        'Application Data'
+         Contacts
+         Cookies
+         Documents
+         Downloads
+         Favorites
+         Links
+        'Local Settings'
+         Music
+        'My Documents'
+         NTUSER.DAT
+         NTUSER.DAT{7f229998-2da2-11f1-8458-e5e6312776f1}.TM.blf
+         NTUSER.DAT{7f229998-2da2-11f1-8458-e5e6312776f1}.TMContainer00000000000000000001.regtrans-ms
+         NTUSER.DAT{7f229998-2da2-11f1-8458-e5e6312776f1}.TMContainer00000000000000000002.regtrans-ms
+         NetHood
+         OneDrive
+         Pictures
+         PrintHood
+         Recent
+        'Saved Games'
+         Searches
+         SendTo
+         Templates
+         Videos
+         aaa-dir
+         dev-workspace
+         inst.ini
+         my-web-server
+         ntuser.dat.LOG1
+         ntuser.dat.LOG2
+         ntuser.ini
+         nuuid.ini
+         useruid.ini
+         vmlogs
+        ''$'\354\213\234\354\236\221'' '$'\353\251\224\353\211\264'
+        root@db185662a4f9:/home/study# ls -ld aaa-dir
+        drwxrwxrwx 1 root root 4096 Nov  5 06:19 aaa-dir
+        root@db185662a4f9:/home/study# chmod 700 aaa-dir
+
+파일 권한 변경
+
+
 # Docker 운영/검증 로그
 
 Docker 설치 완료 → 버전 확인입니다.
