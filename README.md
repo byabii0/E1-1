@@ -768,6 +768,8 @@ E1-2 삭제
 
 Git 설정
 
+git config --list: 현재 설정된 모든 정보를 다시 확인합니다.
+
         PS C:\Users\kmj04\my-web-server> git config --global user.name "**"
         PS C:\Users\kmj04\my-web-server> git config --global user.email "**@gmail.com"
         PS C:\Users\kmj04\my-web-server> git config --list
@@ -791,6 +793,8 @@ GitHub/VSCode 연동 증거
 
 로컬 저장소 만들기 및 커밋
 
+git init: 저장소 초기화입니다.
+
         PS C:\Users\kmj04\my-web-server> git init
         Initialized empty Git repository in C:/Users/kmj04/my-web-server/.git/
         PS C:\Users\kmj04\my-web-server> git add .
@@ -805,6 +809,12 @@ GitHub/VSCode 연동 증거
 <img width="880" height="381" alt="image" src="https://github.com/user-attachments/assets/377cf88f-6cd1-4dd3-9214-9607dab47d35" />
 
 GitHub 원격 저장소 연결 및 Push
+
+git remote add origin: 내 로컬 폴더와 GitHub 주소를 연결했습니다.
+
+git branch -M main: 기본 브랜치 이름을 main으로 확정했습니다.
+
+git push -u origin main: 내 컴퓨터의 기록을 GitHub로 보냈습니다. -u 옵션 덕분에 다음부터는 그냥 git push만 입력해도 자동으로 main 브랜치에 올라가게 됩니다.
 
         PS C:\Users\kmj04\my-web-server> git remote add origin https://github.com/byabii0/E1-1.git
         PS C:\Users\kmj04\my-web-server> git branch -M main
