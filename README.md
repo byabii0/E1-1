@@ -109,7 +109,7 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
     d-----      2026-11-03  오후 10:09                logs                                                               
     d-----      2026-11-03  오후 10:09                data                
 
-목록 확인하기: ls, ls -l, ls -a, ls -la, tree
+디렉터리 목록 확인하기: ls, ls -l, ls -a, ls -la, tree
 
     PS C:\Users\kmj04> ls    
                          
@@ -141,7 +141,7 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
     -a----      2023-07-06  오후 11:03             45 nuuid.ini                                                          
     -a----      2023-07-06  오후 11:03             53 useruid.ini          
 
-권한 정리: chmod 명령어를 사용해야 하는데, powershell 터미널에서는 사용할 수 없어서 chmod 없이 코드를 작성했습니다. 이어지는 권한 변경 과정에서는 사용할 수 없는 원인을 파악하여 chmod 명령어를 사용했습니다. 과제 마지막의 트러블슈팅 경험에서 자세히 기재하겠습니다.
+권한 정리: powershell 터미널에서 chmod 명령어를 이용하는 작업 디렉터리를 만들 수 없어서 chmod 없이 코드를 작성했습니다. 이어지는 권한 변경 과정에서는 사용할 수 없는 원인을 파악하여 ubuntu 터미널로 진입하여 chmod 명령어를 사용했으며, 현재는 해당 과정을 수정했습니다. 과제 마지막의 트러블슈팅 경험에서 자세히 기재하겠습니다.
 
          # 1. 작업 디렉토리로 이동
         >> cd ~\dev-workspace
@@ -194,7 +194,7 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
         ----                 -------------         ------ ----                                                               
         -a----      2026-11-03  오후 11:09              0 start.sh  
         
-        파일 내용 작성 및 실행: cat, bash
+파일 내용 작성 및 실행: cat, bash
 
 절대 경로와 상대 경로는 파일이나 폴더의 주소를 알려주는 방식입니다.
 
@@ -770,7 +770,78 @@ GitHub 원격 저장소 연결 및 Push
            6b144a2..b50435c  main -> main
         branch 'main' set up to track 'origin/main'.
 
-# 트러블슈팅
+# 트러블슈팅 2건 이상
 
-문제: 
+문제: 디렉터리 권한 정리에서 chmod 명령어를 사용해야 하는데, 오류가 발생했습니다. 
+원인 가설: chmod는 powershell 터미널에서 사용할 수 없는 명령어입니다.
+확인: chmod가 리눅스, 맥 환경에서 사용 가능한 명령어임을 확인했습니다.
+해결/대안: 처음에는 chmod 없이 powershell 터미널 환경에서 사용 가능한 코드를 작성했습니다. 이후 디렉터리 권한 변경에서 VSCode에서 ubuntu 컨테이너로 진입할 수 있는 방법을 찾은 뒤 ubuntu 컨테이너 환경에서 디렉터리 권한 정리를 다시 시도했습니다.
 
+        PS C:\test\집> cd ~ 
+        PS C:\Users\kmj04> mkdir study
+        
+        
+            디렉터리: C:\Users\kmj04
+        
+        
+        Mode                 LastWriteTime         Length Nam
+                                                          e  
+        ----                 -------------         ------ ---
+        d-----      2026-11-05   오후 9:08                stu
+                                                          dy 
+        
+        
+        PS C:\Users\kmj04> cd study
+        PS C:\Users\kmj04\study> docker run --rm -it -v ${PWD}:/data -w /data ubuntu bash
+        root@c39fed6cb923:/data# ls -la
+        total 4
+        drwxrwxrwx 1 root root 4096 Nov  5 12:08 .
+        drwxr-xr-x 1 root root 4096 Nov  5 12:27 ..
+
+문제: docker logs 명령어를 실행하는 과정에서 해당 오류가 발생했습니다.
+        
+        docker: 'docker logs' requires 1 argument
+
+        Usage:  docker logs [OPTIONS] CONTAINER
+
+원인 가설: 로그를 볼 컨테이너의 ID나 이름을 docker logs 뒤에 입력하지 않았습니다.
+
+확인: docker 컨테이너를 제대로 모르는 상태였어서, 컨테이너를 만드는 과정에서 정확한 개념을 학습했고, docker logs가 컨테이너의 로그를 확인하는 명령어라서 이름을 적어야 한다는 것을 이해했습니다.
+
+해결/대안:  컨테이너를 만드는 실습을 마친 뒤 docker logs 명령어에 컨테이너 이름을 붙인 코드를 입력해서 올바른 결과를 얻었습니다.
+
+        PS C:\Users\kmj04\study> docker logs E1-1         
+        /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+        /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+        /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+        10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+        10-listen-on-ipv6-by-default.sh: info: Enabled listenon IPv6 in /etc/nginx/conf.d/default.conf
+        /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+        /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+        /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+        /docker-entrypoint.sh: Configuration complete; ready for start up
+        2026/11/04 13:43:25 [notice] 1#1: using the "epoll" event method
+        2026/11/04 13:43:25 [notice] 1#1: nginx/1.31.8
+        2026/11/04 13:43:25 [notice] 1#1: built by gcc 15.2.0(Alpine 15.2.0) 
+        2026/11/04 13:43:25 [notice] 1#1: OS: Linux 6.18.54.1-microsoft-standard-WSL2
+        2026/11/04 13:43:25 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+        2026/11/04 13:43:25 [notice] 1#1: start worker processes
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 30
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 31
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 32
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 33
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 34
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 35
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 36
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 37
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 38
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 39
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 40
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 41
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 42
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 43
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 44
+        2026/11/04 13:43:25 [notice] 1#1: start worker process 45
+        172.17.0.1 - - [04/Nov/2026:13:43:37 +0000] "GET / HTTP/1.1" 200 71 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0" "-"
+        2026/11/04 13:43:37 [error] 31#31: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file ordirectory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+        172.17.0.1 - - [04/Nov/2026:13:43:37 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0" "-"
