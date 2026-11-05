@@ -770,5 +770,7 @@ GitHub 원격 저장소 연결 및 Push
            6b144a2..b50435c  main -> main
         branch 'main' set up to track 'origin/main'.
 
+# 트러블슈팅
 
+문제: 
 
