@@ -629,6 +629,28 @@ my-web-page 이미지 만들기
 
 포트 매핑이 필요한 이유: 내 호스트 포트와 컨테이너 포트를 연결하면 외부 사용자가 내 포트로 컨테이너에 접근할 수 있습니다. 
 
+컨테이너 종료/유지(attach/exec 등)
+
+        PS C:\Users\kmj04> docker run -it --name A-attach ubuntu bash
+        PS C:\Users\kmj04> docker run -it --name B-exec ubuntu bash
+
+
+        root@de00318445ca:/# exit
+        exit
+
+docker ps 명령어로 A-attach 컨테이너가 종료(Exited)되었음을 확인했습니다.
+
+        PS C:\test\집> docker exec -it B-exec bash
+        root@c00055a7ba5f:/# ls
+        bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+        boot  etc  lib   media  opt  root  sbin  sys  usr
+        root@c00055a7ba5f:/# exit
+        exit
+
+docker ps 명령어로 B-exec 컨테이너가 실행 중(Up)임을 확인했습니다.
+
+attach와 exec의 차이: attach는 컨테이너의 메인 프로세스와 직접 연결되어 있어서 exit 명령어를 입력하면 컨테이너가 종료되고, exec은 실행 중인 컨테이너에 새 프로세스로 들어갔기 때문에 exit 명령어를 입력해도 메인 프로세스는 종료되지 않습니다.
+
 # 바인드 마운트 반영 + 볼륨 영속성 증거
 
 바인드 마운트 반영
