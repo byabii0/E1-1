@@ -84,6 +84,9 @@ Git/GitHub: Git 설정 및 GitHub/VSCode 연동 증거
 
 # 터미널 조작 로그
 
+현재 위치 확인, 목록 확인(숨김 파일 포함), 이동, 생성, 복사, 이동/이름변경, 삭제
+파일 내용 확인, 빈 파일 생성
+
 위치 확인 및 이동: pwd, cd
 
     PS C:\test\집> cd ~
@@ -111,38 +114,73 @@ mkdir 명령어로 abc 폴더를 생성했습니다. cd.. 명령어로 상위 �
         PS C:\test\집> docker run --rm -it -v ${PWD}:/data ubuntu bash
         root@f9b0de57b87b:/# touch def.txt
 
+폴더 복사: cp 명령어로 abc 폴더의 복사본 abc_copy를 생성했습니다.
+
+        PS C:\test\집> cp -r C:\test\집\abc C:\test\집\abc_copy
 
 디렉터리 목록 확인하기: ls, ls -l, ls -a, ls -la, tree
 
-    PS C:\Users\kmj04> ls    
-                         
-    디렉터리: C:\Users\kmj04
+ls 명령어로 abc폴더와 abc_copy가 모두 생성된 것을 확인했습니다.
 
-    
-    Mode                 LastWriteTime         Length Name                                                               
-    ----                 -------------         ------ ----                                                               
-    d-----      2026-11-02   오후 9:59                .config                                                            
-    d-----      2026-11-03  오전 12:34                .copilot                                                           
-    d-----      2026-11-03   오후 8:40                .docker                                                            
-    d-----      2026-11-03  오전 12:35                .vscode                                                            
-    d-----      2026-11-02  오후 10:02                .vscode-shared                                                     
-    d-r---      2026-04-01   오후 5:23                Contacts                                                           
-    d-----      2026-11-03  오후 10:09                dev-workspace                                                      
-    d-----      2022-12-18   오후 1:23                Documents                                                          
-    d-r---      2026-11-03  오전 11:24                Downloads                                                          
-    d-r---      2026-04-01   오후 5:23                Favorites                                                          
-    d-r---      2026-04-01   오후 5:23                Links                                                              
-    d-r---      2026-04-01   오후 5:23                Music                                                              
-    dar--l      2026-04-01   오후 5:21                OneDrive                                                           
-    d-----      2026-06-23   오후 4:41                Pictures                                                           
-    d-r---      2026-04-01   오후 5:23                Saved Games                                                        
-    d-r---      2026-04-01   오후 5:23                Searches                                                           
-    d-r---      2026-04-01   오후 5:23                Videos                                                             
-    d-----      2023-07-06  오후 11:34                vmlogs                                                             
-    -a----      2026-11-03   오전 1:12             52 .gitconfig                                                         
-    -a----      2023-07-06  오후 11:03             41 inst.ini                                                           
-    -a----      2023-07-06  오후 11:03             45 nuuid.ini                                                          
-    -a----      2023-07-06  오후 11:03             53 useruid.ini          
+                PS C:\test\집> ls
+        
+        
+            디렉터리: C:\test\집
+        
+        
+        Mode                 LastWriteTime         Length Name                                                                                                         
+        ----                 -------------         ------ ----                                                                                                         
+        d-----      2026-11-05  오후 10:44                abc                                                                                                          
+        d-----      2026-11-05  오후 11:14                abc_copy                                                                                                     
+        d-----      2026-11-03   오전 1:17                E1-1    
+
+숨겨진 파일까지 확인하기 위해 ubuntu 컨테이너 환경에서 ls -la 명령어를 사용했습니다.
+
+        PS C:\test\집> docker run --rm -it -v ${PWD}:/data ubuntu bash
+        root@d426099da62b:/# cd /data
+        root@d426099da62b:/data# ls -la
+        total 4
+        drwxrwxrwx 1 root root 4096 Nov  5 14:12 .
+        drwxr-xr-x 1 root root 4096 Nov  5 14:26 ..
+        drwxrwxrwx 1 root root 4096 Nov  2 16:17 E1-1
+        drwxrwxrwx 1 root root 4096 Nov  5 13:44 abc
+        drwxr-xr-x 1 root root 4096 Nov  5 14:14 abc_copy
+
+powershell 환경에서는 ls -force 명령어로 확인할 수 있습니다.
+
+        PS C:\test\집> ls -force
+        
+        
+            디렉터리: C:\test\집
+        
+        
+        Mode                 LastWriteTime         Length Name                                                                                                         
+        ----                 -------------         ------ ----                                                                                                         
+        d-----      2026-11-05  오후 10:44                abc                                                                                                          
+        d-----      2026-11-05  오후 11:14                abc_copy                                                                                                     
+        d-----      2026-11-03   오전 1:17                E1-1   
+
+mv 명령어로 폴더/파일 이름 변경과 폴더/파일 이동을 할 수 있습니다.
+
+폴더 이름 변경
+        
+        root@d426099da62b:/data# mv abc_copy cba
+
+폴더 이동
+
+        root@d426099da62b:/data# mv abc acb/
+
+rm -r 명령어로 폴더를 삭제할 수 있습니다.
+
+        root@d426099da62b:/data# rm -r acb 
+
+cat 명령어로 파일의 전체 내용을 확인할 수 있습니다. touch 명령어로 빈 파일 ccc.txt를 생성하고, echo 명령어로 출력할 내용 "ddd"를 저장한 다음 cat 명령어로 ccc.txt의 내용 ddd가 출력되었음을 확인했습니다.
+
+        root@d426099da62b:/data# touch ccc
+        root@d426099da62b:/data# touch ccc.txt
+        root@d426099da62b:/data# echo "ddd" > ccc.txt
+        root@d426099da62b:/data# cat ccc.txt
+        ddd
 
 권한 정리: powershell 터미널에서 chmod 명령어를 이용하는 작업 디렉터리를 만들 수 없어서 chmod 없이 코드를 작성했습니다. 이어지는 권한 변경 과정에서는 사용할 수 없는 원인을 파악하여 ubuntu 터미널로 진입하여 chmod 명령어를 사용했으며, 현재는 해당 과정을 수정했습니다. 과제 마지막의 트러블슈팅 경험에서 자세히 기재하겠습니다.
 
