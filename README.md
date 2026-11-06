@@ -816,7 +816,7 @@ git branch -M main: 기본 브랜치 이름을 main으로 확정했습니다.
 
 git push -u origin main: 내 컴퓨터의 기록을 GitHub로 보냈습니다. -u 옵션 덕분에 다음부터는 그냥 git push만 입력해도 자동으로 main 브랜치에 올라가게 됩니다.
 
-        PS C:\Users\kmj04\my-web-server> git remote add origin https://github.com/byabii0/E1-1.git
+        PS C:\Users\kmj04\my-web-server> git remote add origin https://github.com/**/E1-1.git
         PS C:\Users\kmj04\my-web-server> git branch -M main
         PS C:\Users\kmj04\my-web-server> git push -u origin main
         Enumerating objects: 7, done.
