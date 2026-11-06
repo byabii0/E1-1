@@ -664,7 +664,7 @@ my-web-page 이미지 만들기
 
 # 포트 매핑 접속 증거
 
-웹 서버 실행 확인
+docker ps 명령어로 웹 서버 실행을 확인했습니다.
 
         PS C:\Users\kmj04\my-web-server> docker ps
         CONTAINER ID   IMAGE         COMMAND                   CREATED         STATUS         PORTS                                     NAMES
